@@ -1,13 +1,16 @@
 # UIContactSales
 
+This project pursues the concept of a panel for a user where they can see quick information in the context of data, and can also extend to another page for more details.
+
 ## Authors
 
 - [@NugetDePatto](https://github.com/NugetDePatto)
 - [@badillovictor](https://github.com/badillovictor)
+- [@ederjgb94] (https://github.com/ederjgb94)
+- [@Campus-TD] (https://github.com/Campus-TD)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-This project pursues the concept of a panel for a user where they can see quick information in the context of data, and can also extend to another page for more details.
 
 ## Features
 
@@ -39,3 +42,4 @@ This project pursues the concept of a panel for a user where they can see quick 
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
+![Logo](https://github.com/Campus-TD/.github/raw/main/background.jpg)
