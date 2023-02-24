@@ -26,7 +26,10 @@ This project pursues the concept of a panel for a user where they can see quick 
 | Card Color 4 | ![#EF5DEDF](https://via.placeholder.com/10/0EF5DEDF?text=+) #EF5DEDF |
 
 
+## Screenshots
+
 <img src="imagesreadme/homepage.png" width="300"/>
+
 
 ## Licenses
 
