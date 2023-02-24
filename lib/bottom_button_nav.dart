@@ -15,31 +15,28 @@ class BottomNavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: 40,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          child: DelayedDisplay(
-            slidingBeginOffset: const Offset(0, 0),
+    return DelayedDisplay(
+      slidingBeginOffset: const Offset(0, 0),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 40,
+            bottom: 0,
+            right: 0,
+            left: 0,
             child: Container(
               height: 80,
               color: isSelected ? color : null,
             ),
           ),
-        ),
-        Container(
-          alignment: Alignment.topCenter,
-          height: 80,
-          width: 50,
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: DelayedDisplay(
-            slidingBeginOffset: const Offset(0, 0),
+          Container(
+            alignment: Alignment.topCenter,
+            height: 80,
+            width: 50,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(40),
+            ),
             child: Container(
               width: 50,
               height: 50,
@@ -53,32 +50,32 @@ class BottomNavButton extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        Positioned(
-          bottom: -60,
-          left: -100,
-          child: Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade50,
-              borderRadius: BorderRadius.circular(80),
+          Positioned(
+            bottom: -60,
+            left: -100,
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade50,
+                borderRadius: BorderRadius.circular(80),
+              ),
             ),
           ),
-        ),
-        Positioned(
-          bottom: -60,
-          right: -100,
-          child: Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade50,
-              borderRadius: BorderRadius.circular(80),
+          Positioned(
+            bottom: -60,
+            right: -100,
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade50,
+                borderRadius: BorderRadius.circular(80),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
