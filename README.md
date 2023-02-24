@@ -1,5 +1,6 @@
 # UIContactSales
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 This project pursues the concept of a panel for a user where they can see quick information in the context of data, and can also extend to another page for more details.
 
 ## Authors
