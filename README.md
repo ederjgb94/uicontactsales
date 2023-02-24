@@ -7,8 +7,8 @@ This project pursues the concept of a panel for a user where they can see quick 
 
 - [@NugetDePatto](https://github.com/NugetDePatto)
 - [@badillovictor](https://github.com/badillovictor)
-- [@ederjgb94] (https://github.com/ederjgb94)
-- [@Campus-TD] (https://github.com/Campus-TD)
+- [@ederjgb94](https://github.com/ederjgb94)
+- [@Campus-TD](https://github.com/Campus-TD)
 
 ## Features
 
