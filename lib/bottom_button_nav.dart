@@ -1,7 +1,8 @@
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavButton extends StatefulWidget {
+class BottomNavButton extends StatelessWidget {
   final Color color;
   final IconData icon;
   final bool isSelected;
@@ -13,11 +14,6 @@ class BottomNavButton extends StatefulWidget {
       required this.isSelected});
 
   @override
-  State<BottomNavButton> createState() => _BottomNavButtonState();
-}
-
-class _BottomNavButtonState extends State<BottomNavButton> {
-  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
@@ -26,9 +22,12 @@ class _BottomNavButtonState extends State<BottomNavButton> {
           bottom: 0,
           right: 0,
           left: 0,
-          child: Container(
-            height: 80,
-            color: widget.isSelected ? widget.color : null,
+          child: DelayedDisplay(
+            slidingBeginOffset: const Offset(0, 0),
+            child: Container(
+              height: 80,
+              color: isSelected ? color : null,
+            ),
           ),
         ),
         Container(
@@ -39,16 +38,19 @@ class _BottomNavButtonState extends State<BottomNavButton> {
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(40),
           ),
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              color: widget.isSelected ? widget.color : null,
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              widget.icon,
-              color: Colors.black,
+          child: DelayedDisplay(
+            slidingBeginOffset: const Offset(0, 0),
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: isSelected ? color : null,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                icon,
+                color: Colors.black,
+              ),
             ),
           ),
         ),

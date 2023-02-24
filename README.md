@@ -12,10 +12,11 @@ This project pursues the concept of a panel for a user where they can see quick 
 
 ## Features
 
-- Added Component cards
+- Added component cards
 - Delayed display animation was incorporated
 - The customized navigation bottom bar started
 - Poppins font was used
+- Added animation in bottom nav button
 
 ## Color Reference
 
