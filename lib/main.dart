@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:mostrandskills/custom_bottom_nav.dart';
 import 'package:mostrandskills/tarjeta.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -50,6 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var url = Uri.https('d1c8-148-237-97-199.ngrok.io', 'api/products/1');
+          var response = await http.get(url);
+          print('Response status: ${response.statusCode}');
+          // print('Response body: ${response.body}');
+          Map<String, dynamic> data = jsonDecode(response.body);
+          var precio = double.parse(data['precio']);
+          print((precio * 2));
+          // Map<String, dynamic> persona = data[0];
+          // print(persona['id']);
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.grey.shade50,
         elevation: 0,
