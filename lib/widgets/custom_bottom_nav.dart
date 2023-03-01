@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mostrandskills/bottom_button_nav.dart';
+import 'package:mostrandskills/widgets/bottom_button_nav.dart';
 
 class CustomBottomNav extends StatefulWidget {
+  const CustomBottomNav({super.key});
+
   @override
   State<CustomBottomNav> createState() => _CustomBottomNavState();
 }
