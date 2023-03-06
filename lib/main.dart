@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mostrandskills/vistas/home_page.dart';
+import 'package:mostrandskills/vistas/test_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: TestPage(),
     );
   }
 }

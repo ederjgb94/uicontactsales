@@ -33,15 +33,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          var url = Uri.https('d1c8-148-237-97-199.ngrok.io', 'api/products/1');
-          var response = await http.get(url);
-          print('Response status: ${response.statusCode}');
-          // print('Response body: ${response.body}');
-          Map<String, dynamic> data = jsonDecode(response.body);
-          var precio = double.parse(data['precio']);
-          print((precio * 2));
-          // Map<String, dynamic> persona = data[0];
-          // print(persona['id']);
+          // var url = Uri.https('d1c8-148-237-97-199.ngrok.io', 'api/products/1');
+          // var response = await http.get(url);
+          // print('Response status: ${response.statusCode}');
+          // // print('Response body: ${response.body}');
+          // Map<String, dynamic> data = jsonDecode(response.body);
+          // var precio = double.parse(data['precio']);
+          // print((precio * 2));
+          // // Map<String, dynamic> persona = data[0];
+          // // print(persona['id']);
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
