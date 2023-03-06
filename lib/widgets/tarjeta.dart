@@ -18,8 +18,6 @@ class Tarjeta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     return Container(
       height: height,
       decoration: BoxDecoration(
