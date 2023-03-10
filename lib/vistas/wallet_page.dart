@@ -1,10 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:scaled_list/scaled_list.dart';
 import '../widgets/Cwallet.dart';
-import '../widgets/tarjeta.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({super.key, required this.title});
@@ -17,24 +12,28 @@ class WalletPage extends StatefulWidget {
 
 class _WalletPageState extends State<WalletPage> {
   final PageController controller = PageController();
-  List<Map<String, String>> tarjetas = [
+  int index = 0;
+
+  List<Map<String, dynamic>> listCard = [
     {
-      'numero': '3829 4820',
-      'nombre': "Nombre",
-      'fecha': "fecha",
-      'cvv': "cvv",
+      'nombre': 'Ana',
+      'numero': '1234 5678',
+      'color': Colors.teal,
     },
     {
-      'numero': '3829 4820',
-      'nombre': "Nombre",
-      'fecha': "fecha",
-      'cvv': "cvv",
+      'nombre': 'Roberto',
+      'numero': '1234 5678',
+      'color': Colors.red,
     },
     {
-      'numero': '3829 4820',
-      'nombre': "Nombre",
-      'fecha': "fecha",
-      'cvv': "cvv",
+      'nombre': 'Luis',
+      'numero': '1234 5678',
+      'color': Colors.blue,
+    },
+    {
+      'nombre': '',
+      'numero': '',
+      'color': Colors.grey.shade300,
     }
   ];
 
@@ -42,37 +41,30 @@ class _WalletPageState extends State<WalletPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        //clipBehavior: Clip.none,
-        //alignment: Alignment.center,
         children: [
-          //const SizedBox(height: 300),
           Container(
             padding: const EdgeInsets.only(top: 100),
             height: 390,
-            //width: 400,
-            child: ListView(
+            child: PageView(
               physics: const BouncingScrollPhysics(),
-              controller: ScrollController(
-                initialScrollOffset: 200,
-              ),
-              scrollDirection: Axis.horizontal,
-              children: [
-                const SizedBox(
-                  width: 15,
+              padEnds: false,
+              onPageChanged: (index) {
+                setState(() {
+                  this.index = index;
+                });
+              },
+              controller: PageController(viewportFraction: 0.65),
+              children: List.generate(
+                listCard.length,
+                (index) => WalletCardFinal(
+                  tamano: listCard.length,
+                  color: listCard[index]['color'],
+                  indexL: index,
+                  indexP: this.index,
+                  nombre: listCard[index]['nombre'],
+                  numero: listCard[index]['numero'],
                 ),
-                const WalletCard(
-                    numero: '3829 4820',
-                    nombre: "Nombre",
-                    fecha: "fecha",
-                    cvv: "cvv",
-                    color: Color(0xFFE9F4FA)),
-                const WalletCard(
-                    numero: '1234 5678',
-                    nombre: "Nombre",
-                    fecha: "fecha",
-                    cvv: "cvv",
-                    color: Color(0xFFE5DCF1)),
-              ],
+              ),
             ),
           ),
           Expanded(
@@ -82,7 +74,7 @@ class _WalletPageState extends State<WalletPage> {
                   //color: Color.fromARGB(255, 101, 151, 179),
                   ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: const [
                   Movimiento(
                     icon: Icon(Icons.ac_unit_outlined),

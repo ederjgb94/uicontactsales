@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WalletPage(title: 'Flutter Demo Home Page'),
+      home: WalletPage(title: ''),
     );
   }
 }
