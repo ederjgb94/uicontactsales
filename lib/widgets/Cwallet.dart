@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -84,7 +82,7 @@ class WalletCardFinal extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Text(
@@ -102,7 +100,7 @@ class WalletCardFinal extends StatelessWidget {
             wordSpacing: 1.5,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 44,
         ),
         Text(
@@ -111,6 +109,44 @@ class WalletCardFinal extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class Mov extends StatelessWidget {
+  final Icon icon;
+  final String titulo;
+  final String fecha;
+  final String precio;
+
+  const Mov({
+    super.key,
+    required this.icon,
+    required this.titulo,
+    required this.fecha,
+    required this.precio,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          title: Text(titulo),
+          subtitle: Text(fecha),
+          trailing: Text(
+            '-\$$precio',
+            style: GoogleFonts.inter(
+              fontSize: 18,
+            ),
+          ),
+          leading: icon,
+        ),
+        const Divider(
+          height: 0,
+          thickness: 1,
         ),
       ],
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/Cwallet.dart';
 
 class WalletPage extends StatefulWidget {
@@ -18,33 +20,103 @@ class _WalletPageState extends State<WalletPage> {
     {
       'nombre': 'Ana',
       'numero': '1234 5678',
-      'color': Colors.teal,
+      'color': Color(0xFFE9F4FA),
+      'movimientos': [
+        {
+          'icon': Icon(Icons.music_note_outlined),
+          'titulo': 'Spotify',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.local_grocery_store_outlined),
+          'titulo': 'Grocery',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.food_bank_outlined),
+          'titulo': 'Food',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+      ]
     },
     {
       'nombre': 'Roberto',
       'numero': '1234 5678',
-      'color': Colors.red,
+      'color': Color(0xFFE5DCF1),
+      'movimientos': [
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'Lo que sea',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'Comida',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'No se',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'No se',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+      ]
     },
     {
       'nombre': 'Luis',
       'numero': '1234 5678',
-      'color': Colors.blue,
+      'color': const Color(0xFFE9F4FA),
+      'movimientos': [
+        {
+          'icon': Icon(Icons.shopping_cart_outlined),
+          'titulo': 'Lo que sea',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'Comida',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+      ],
     },
     {
       'nombre': '',
       'numero': '',
       'color': Colors.grey.shade300,
+      'movimientos': []
     }
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.transparent,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+        ),
+        elevation: 0,
+      ),
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 100),
-            height: 390,
+            padding: const EdgeInsets.only(top: 60),
+            height: 350,
             child: PageView(
               physics: const BouncingScrollPhysics(),
               padEnds: false,
@@ -67,42 +139,45 @@ class _WalletPageState extends State<WalletPage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 40,
+          ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: 350,
-              decoration: const BoxDecoration(
-                  //color: Color.fromARGB(255, 101, 151, 179),
-                  ),
               child: ListView(
                 physics: const BouncingScrollPhysics(),
-                children: const [
-                  Movimiento(
-                    icon: Icon(Icons.ac_unit_outlined),
-                    titulo: "Spotify",
-                    fecha: "Mar 2, 12:53pm",
-                    precio: "999.99",
-                    imagen: 'assets/logotipo-de-spotify.png',
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Movimiento(
-                    icon: Icon(Icons.ac_unit_outlined),
-                    titulo: "Grocery",
-                    fecha: "Mar 2, 12:53pm",
-                    precio: "999.99",
-                    imagen: 'assets/food.png',
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Movimiento(
-                    icon: Icon(Icons.ac_unit_outlined),
-                    titulo: "Food",
-                    fecha: "Mar 2, 12:53pm",
-                    precio: "999.99",
-                    imagen: 'assets/porcion-de-pizza.png',
-                  ),
+                children: [
+                  for (int i = 0;
+                      i < listCard[index]['movimientos'].length;
+                      i++)
+                    ListTile(
+                      leading: listCard[index]['movimientos'][i]['icon'],
+                      title: Text(
+                        listCard[index]['movimientos'][i]['titulo'],
+                        style: GoogleFonts.inter(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
+                      ),
+                      subtitle: Text(
+                        listCard[index]['movimientos'][i]['fecha'],
+                        style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                      trailing: Text(
+                        listCard[index]['movimientos'][i]['precio'],
+                        style: GoogleFonts.inter(
+                          fontSize: 16.5,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
