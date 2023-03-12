@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,6 +58,18 @@ class _WalletPageState extends State<WalletPage> {
         {
           'icon': Icon(Icons.ac_unit_outlined),
           'titulo': 'Comida',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'No se',
+          'fecha': 'Mar 2, 12:53pm',
+          'precio': '-\$999.99',
+        },
+        {
+          'icon': Icon(Icons.ac_unit_outlined),
+          'titulo': 'No se',
           'fecha': 'Mar 2, 12:53pm',
           'precio': '-\$999.99',
         },
@@ -170,7 +184,8 @@ class _WalletPageState extends State<WalletPage> {
                         ),
                       ),
                       trailing: Text(
-                        listCard[index]['movimientos'][i]['precio'],
+                        //listCard[index]['movimientos'][i]['precio'],
+                        '-\$${Random().nextInt(10000).toString()}',
                         style: GoogleFonts.inter(
                           fontSize: 16.5,
                           fontWeight: FontWeight.w600,

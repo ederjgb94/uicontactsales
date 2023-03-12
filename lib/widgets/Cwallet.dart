@@ -116,6 +116,7 @@ class WalletCardFinal extends StatelessWidget {
 }
 
 class Mov extends StatelessWidget {
+  final int index;
   final Icon icon;
   final String titulo;
   final String fecha;
@@ -127,28 +128,37 @@ class Mov extends StatelessWidget {
     required this.titulo,
     required this.fecha,
     required this.precio,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text(titulo),
-          subtitle: Text(fecha),
-          trailing: Text(
-            '-\$$precio',
-            style: GoogleFonts.inter(
-              fontSize: 18,
-            ),
-          ),
-          leading: icon,
+    return ListTile(
+      leading: icon,
+      title: Text(
+        titulo,
+        style: GoogleFonts.inter(
+          fontSize: 19,
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
         ),
-        const Divider(
-          height: 0,
-          thickness: 1,
+      ),
+      subtitle: Text(
+        fecha,
+        style: GoogleFonts.inter(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Colors.black,
         ),
-      ],
+      ),
+      trailing: Text(
+        precio,
+        style: GoogleFonts.inter(
+          fontSize: 16.5,
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
+        ),
+      ),
     );
   }
 }
